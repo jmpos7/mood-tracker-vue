@@ -1,0 +1,128 @@
+/* Global variables */
+$color-text: rgb(0, 19, 55);
+$color-primary: rgb(255, 132, 0);
+$color-accent: rgb(239, 245, 255);
+$color-accent2: rgb(0, 43, 123);
+$color-background: rgba(196, 245, 73, 0.878);
+$global-font: 'Noto Sans', Helvetica, Arial, sans-serif;
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('@/fonts/NotoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('@/fonts/NotoSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* App main */
+#app {
+  font-family: $global-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $color-text;
+  background-color: $color-background;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+h1 {
+  color: $color-accent2;
+  font-size: 2.5em;
+  padding: 10px;
+}
+
+h2 {
+  padding-top: 20px;
+}
+
+/* Mood options component */
+.mood-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mood-options button {
+  flex: 0 0 calc(33.33% - 10px);
+  padding: 30px 0;
+  margin-bottom: 10px;
+  background-color: $color-accent;
+  border: 2px solid $color-accent2;
+  font-family: $global-font;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: $color-accent2;
+  border-radius: 18px;
+  transition: box-shadow 0.4s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-accent;
+    box-shadow: $color-primary 0px -15px 30px -18px inset;
+  }
+
+  &.selected {
+    background-color: $color-primary;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
+}
+
+/* Media Query for Small Screens */
+  @media (max-width: 600px) {
+    .mood-options {
+      flex-direction: column;
+    }
+  
+    .mood-options button {
+      flex-basis: calc(100% - 10px);
+    }
+  }
+  
+/* Submit button */
+.submit-button {
+    background-color: $color-accent2;
+    color: $color-accent;
+    font-family: $global-font;
+    letter-spacing: 0.05em;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+  
+    &:hover {
+    background-color: $color-primary;
+    }
+}
+  
+/* Mood history */
+.mood-history table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 28px;
+}
+  
+  .mood-history th,
+  .mood-history td {
+    font-size: 0.9em;
+    padding: 8px;
+    margin: 5px;
+  }
+  
+  .mood-history th {
+    background-color: $color-accent;
+    border-radius: 10px 10px 0px 0px;
+    font-weight: 700;
+  }
+  
+  .mood-history tr:nth-child(even) {
+    background-color: $color-accent;
+  }
+
